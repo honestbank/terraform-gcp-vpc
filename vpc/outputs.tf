@@ -32,3 +32,8 @@ output "services_subnet_cidr" {
   description = "The CIDR of the Services subnet."
   value       = google_compute_subnetwork.primary_subnet.secondary_ip_range[1].ip_cidr_range
 }
+
+output "primary_subnet_self_link" {
+  description = "The subnet_self_links output - meant to be passed to gcp-project-factory as  an input."
+  value       = google_compute_subnetwork.primary_subnet.self_link
+}
