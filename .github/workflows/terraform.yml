@@ -9,7 +9,8 @@ on:
 env:
   tf_version: "latest"
   tf_working_dir: "."
-  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+  TF_VAR_google_credentials: ${{ secrets.TERRATEST_GOOGLE_CREDENTIALS }}
+  TF_VAR_google_project: ${{ secrets.TERRATEST_GOOGLE_PROJECT }}
 jobs:
   terraform:
     name: "Terraform - Format, Init, Validate, Plan, Fail on Change"
@@ -58,7 +59,7 @@ jobs:
             </details>
 
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Working Directory: \`${{ env.tf_actions_working_dir }}\`, Workflow: \`${{ github.workflow }}\`*`;
-              
+
             github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
