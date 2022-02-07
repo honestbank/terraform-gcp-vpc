@@ -32,3 +32,18 @@ output "services_subnet_cidr" {
   description = "The CIDR of the Services subnet."
   value       = module.vpc.services_subnet_cidr
 }
+
+output "primary_subnet_self_link" {
+  description = "The subnet_self_links output - meant to be passed to gcp-project-factory as  an input."
+  value       = module.vpc.primary_subnet_self_link
+}
+
+output "shared_vpc_id" {
+  description = "The id output of the shared VPC resource."
+  value       = module.vpc.shared_vpc_id
+}
+
+output "shared_vpc_self_link" {
+  description = "The self_link output of the shared VPC resource."
+  value       = module.vpc.shared_vpc_self_link
+}
