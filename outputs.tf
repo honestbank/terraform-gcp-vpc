@@ -3,6 +3,11 @@ output "vpc_network_name" {
   value       = module.vpc.network_name
 }
 
+output "vpc_network_id" {
+  description = "The ID of the VPC."
+  value       = module.vpc.network_id
+}
+
 output "primary_subnet_name" {
   description = "The primary subnets of the VPC."
   value       = module.vpc.primary_subnet_name
