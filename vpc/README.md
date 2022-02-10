@@ -11,7 +11,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.9.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | ~> 4.0 |
 
 ## Modules
 
@@ -43,6 +43,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_network_id"></a> [network\_id](#output\_network\_id) | The id of the VPC. |
 | <a name="output_network_name"></a> [network\_name](#output\_network\_name) | The name of the VPC. |
 | <a name="output_pods_subnet_cidr"></a> [pods\_subnet\_cidr](#output\_pods\_subnet\_cidr) | The CIDR of the Pods subnet. |
 | <a name="output_pods_subnet_name"></a> [pods\_subnet\_name](#output\_pods\_subnet\_name) | The name of the secondary IP range built for Pods. |

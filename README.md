@@ -51,5 +51,6 @@ No resources.
 | <a name="output_services_subnet_name"></a> [services\_subnet\_name](#output\_services\_subnet\_name) | The name of the secondary IP range built for Services. |
 | <a name="output_shared_vpc_id"></a> [shared\_vpc\_id](#output\_shared\_vpc\_id) | The id output of the shared VPC resource. |
 | <a name="output_shared_vpc_self_link"></a> [shared\_vpc\_self\_link](#output\_shared\_vpc\_self\_link) | The self\_link output of the shared VPC resource. |
+| <a name="output_vpc_network_id"></a> [vpc\_network\_id](#output\_vpc\_network\_id) | The id of the VPC. |
 | <a name="output_vpc_network_name"></a> [vpc\_network\_name](#output\_vpc\_network\_name) | The name of the VPC. |
 <!-- END_TF_DOCS -->
