@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: terraform-gcp-vpc
+  description: Terraform module for building a VPC in Google Cloud Platform
+  annotations:
+    github.com/project-slug: honestbank/terraform-gcp-vpc
+    github.com/team-slug: honestbank/devops-engineers
+spec:
+  type: tf-module
+  lifecycle: prod
+  owner: group:devops-engineers
+  system: infrastructure
+  dependencyOf:
+    - resource:gcp-project-factory
