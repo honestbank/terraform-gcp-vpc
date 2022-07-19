@@ -18,11 +18,12 @@ resource "google_compute_network" "vpc" {
 }
 
 resource "google_compute_subnetwork" "primary_subnet" {
-  ip_cidr_range = var.vpc_primary_subnet_ip_range_cidr
-  name          = var.vpc_primary_subnet_name
-  network       = google_compute_network.vpc.id
-  region        = var.google_region
-  project       = var.google_project
+  ip_cidr_range            = var.vpc_primary_subnet_ip_range_cidr
+  name                     = var.vpc_primary_subnet_name
+  network                  = google_compute_network.vpc.id
+  region                   = var.google_region
+  project                  = var.google_project
+  private_ip_google_access = true
 
   stack_type = "IPV4_ONLY"
   log_config {
