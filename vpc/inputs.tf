@@ -40,3 +40,9 @@ variable "vpc_secondary_ip_range_services_name" {
 variable "vpc_secondary_ip_range_services_cidr" {
   description = "Second (Services) secondary IP range in CIDR notation."
 }
+
+variable "enable_flow_logs" {
+  type        = bool
+  description = "Whether or not to enable VPC Flow logs."
+  default     = false
+}

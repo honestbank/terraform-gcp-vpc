@@ -8,7 +8,6 @@ output "network_id" {
   value       = google_compute_network.vpc.id
 }
 
-
 output "primary_subnet_name" {
   description = "The primary subnets of the VPC."
   value       = google_compute_subnetwork.primary_subnet.name
