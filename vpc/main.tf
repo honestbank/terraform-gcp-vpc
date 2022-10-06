@@ -26,13 +26,18 @@ resource "google_compute_subnetwork" "primary_subnet" {
   private_ip_google_access = true
 
   stack_type = "IPV4_ONLY"
-  log_config {
-    aggregation_interval = "INTERVAL_5_SEC"
 
-    # Sampling is between 0-1, 0 = none, 1 = all, 0.5 = 50%
-    flow_sampling = 1
+  dynamic "log_config" {
+    for_each = var.enable_flow_logs ? [1] : []
 
-    metadata = "INCLUDE_ALL_METADATA"
+    content {
+      aggregation_interval = "INTERVAL_5_SEC"
+
+      # Sampling is between 0-1, 0 = none, 1 = all, 0.5 = 50%
+      flow_sampling = 1
+
+      metadata = "INCLUDE_ALL_METADATA"
+    }
   }
 
   secondary_ip_range {

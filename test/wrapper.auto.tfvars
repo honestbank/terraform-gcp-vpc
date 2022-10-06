@@ -1,4 +1,4 @@
-google_project = "test-terraform-project-01"
+google_project = "tf-shared-vpc-host-78a3"
 #network_name   = "vpc"
 google_region = "asia-southeast2"
 

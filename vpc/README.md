@@ -28,6 +28,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_enable_flow_logs"></a> [enable\_flow\_logs](#input\_enable\_flow\_logs) | Whether or not to enable VPC Flow logs. | `bool` | `false` | no |
 | <a name="input_google_project"></a> [google\_project](#input\_google\_project) | The GCP project to build the VPC in. | `any` | n/a | yes |
 | <a name="input_google_region"></a> [google\_region](#input\_google\_region) | The GCP region to build the VPC in. | `any` | n/a | yes |
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | The name of the VPC. | `any` | n/a | yes |
