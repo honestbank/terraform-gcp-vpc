@@ -1,22 +1,13 @@
-terraform {
-  required_providers {
-    google = {
-      version = "~> 4.0"
-    }
-
-    google-beta = {
-      version = "~> 4.0"
-    }
-  }
-}
-
 resource "google_compute_network" "vpc" {
+  #checkov:skip=CKV2_GCP_18: Firewall rules are configured elsewhere.
+
   name                    = var.network_name
   project                 = var.google_project
   routing_mode            = var.vpc_routing_mode
   auto_create_subnetworks = false
 }
 
+#tfsec:ignore:google-compute-enable-vpc-flow-logs - False positive, we are enabling flow logs conditionally
 resource "google_compute_subnetwork" "primary_subnet" {
   ip_cidr_range            = var.vpc_primary_subnet_ip_range_cidr
   name                     = var.vpc_primary_subnet_name
@@ -31,12 +22,11 @@ resource "google_compute_subnetwork" "primary_subnet" {
     for_each = var.enable_flow_logs ? [1] : []
 
     content {
-      aggregation_interval = "INTERVAL_5_SEC"
-
-      # Sampling is between 0-1, 0 = none, 1 = all, 0.5 = 50%
-      flow_sampling = 1
-
-      metadata = "INCLUDE_ALL_METADATA"
+      aggregation_interval = var.vpc_flow_logs_aggregation_interval
+      filter_expr          = var.vpc_flow_logs_filter_expression
+      flow_sampling        = var.vpc_flow_logs_sampling
+      metadata             = var.vpc_flow_logs_metadata
+      metadata_fields      = var.vpc_flow_logs_metadata_fileds
     }
   }
 

@@ -1,0 +1,27 @@
+name: "Terraform GitHub Action"
+permissions: read-all
+on:
+  pull_request:
+    branches: [test, dev, qa, prod, main]
+env:
+  tf_version: "latest"
+  tf_working_dir: "."
+  TF_WORKSPACE: ${{ github.base_ref }}
+jobs:
+  terraform:
+    name: "terraform"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          token: ${{ secrets.ENGINEERING_GITHUB_PERSONAL_ACCESS_TOKEN }}
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt
+        continue-on-error: true

@@ -2,15 +2,16 @@ package test
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
+	"strings"
+	"testing"
+
 	"github.com/gruntwork-io/terratest/modules/files"
 	"github.com/gruntwork-io/terratest/modules/gcp"
 	"github.com/gruntwork-io/terratest/modules/random"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
-	"os"
-	"path/filepath"
-	"strings"
-	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/logger"
 	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
@@ -37,7 +38,7 @@ func TestVpc(t *testing.T) {
 		workingDir := filepath.Join(".", "test-runs", name)
 
 		test_structure.RunTestStage(t, "create_test_copy", func() {
-			tempTestDir = test_structure.CopyTerraformFolderToTemp(t, "../vpc", ".")
+			tempTestDir = test_structure.CopyTerraformFolderToTemp(t, "../modules/vpc", ".")
 			logger.Logf(t, "path to test folder %s\n", tempTestDir)
 
 			test_structure.SaveString(t, workingDir, vpcModulePathKey, tempTestDir)
