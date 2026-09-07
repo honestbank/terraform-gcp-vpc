@@ -98,3 +98,12 @@ variable "vpc_flow_logs_filter_expression" {
   description = "The filter expression for VPC Flow logs. See https://cloud.google.com/vpc/docs/flow-logs#filtering for more reference."
   default     = "true"
 }
+
+variable "vpc_additional_secondary_ranges" {
+  type = list(object({
+    range_name    = string
+    ip_cidr_range = string
+  }))
+  description = "Additional secondary IP ranges to attach to the primary subnet, appended after the Pods and Services ranges (e.g. ranges for a blue/green replacement GKE cluster)."
+  default     = []
+}
