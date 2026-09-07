@@ -52,3 +52,8 @@ output "shared_vpc_self_link" {
   description = "The self_link output of the shared VPC resource."
   value       = google_compute_network.vpc.self_link
 }
+
+output "additional_secondary_ranges" {
+  description = "The additional secondary IP ranges attached to the primary subnet."
+  value       = var.vpc_additional_secondary_ranges
+}
